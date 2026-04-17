@@ -1,0 +1,58 @@
+version: 2
+
+models:
+  - name: stg_ft_ledger
+    description: "Cleaned financial transaction ledger from raw ft_ledger seed"
+    columns:
+      - name: ft_id
+        description: "Unique transaction identifier"
+        tests:
+          - unique
+          - not_null
+      - name: account_id
+        tests:
+          - not_null
+      - name: ft_type_cd
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['BILL', 'PAY', 'PEN', 'ADJ']
+      - name: tax_type_cd
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ['VAT', 'PAYE', 'CIT']
+
+  - name: stg_taxpayer_account
+    description: "Cleaned taxpayer account data"
+    columns:
+      - name: account_id
+        tests:
+          - unique
+          - not_null
+      - name: tax_type_cd
+        tests:
+          - accepted_values:
+              arguments:
+                values: ['VAT', 'PAYE', 'CIT']
+
+  - name: stg_tax_period
+    description: "Tax period reference data"
+    columns:
+      - name: period_id
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_payment
+    description: "Cleaned payment records"
+    columns:
+      - name: payment_id
+        tests:
+          - unique
+          - not_null
+      - name: ft_id
+        tests:
+          - not_null

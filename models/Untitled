@@ -1,5 +1,0 @@
-python3 -c "
-import duckdb
-conn = duckdb.connect('../finance.duckdb')
-print(conn.execute('SHOW TABLES').fetchall())
-"

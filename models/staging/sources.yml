@@ -1,0 +1,32 @@
+version: 2
+
+sources:
+  - name: dbt_finance
+    database: dbt-finance-project
+    schema: dbt_finance
+    tables:
+      - name: raw_transactions
+        description: "Raw financial transactions extracted from source system"
+        columns:
+          - name: ft_id
+            description: "Unique transaction identifier"
+          - name: account_id
+            description: "Taxpayer account identifier"
+          - name: period_id
+            description: "Tax period identifier"
+          - name: tax_type_cd
+            description: "Tax type — VAT, PAYE, CIT"
+          - name: ft_type_cd
+            description: "Transaction type — BILL, PAY, PEN"
+          - name: amount
+            description: "Transaction amount, negative for payments"
+          - name: currency_cd
+            description: "Currency code"
+          - name: ft_date
+            description: "Transaction date"
+          - name: status
+            description: "Transaction status"
+          - name: source_system
+            description: "Source system name"
+          - name: extracted_at
+            description: "Date this record was extracted"

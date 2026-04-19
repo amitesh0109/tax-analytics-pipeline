@@ -8,7 +8,7 @@ renamed as (
         account_id,
         ft_id,
         cast(payment_date as date)       as payment_date,
-        cast(amount as decimal(18,2))    as amount,
+        cast(amount as NUMERIC)    as amount,
         currency_cd,
         payment_method,
         reference_no,

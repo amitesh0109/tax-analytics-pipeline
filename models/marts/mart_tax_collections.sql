@@ -22,10 +22,10 @@ collections as (
         sum(ft.billed_amount)
             - sum(ft.payment_amount)             as outstanding_balance,
 
-        round(
-            sum(ft.payment_amount)
-            / nullif(sum(ft.billed_amount), 0)
-            * 100, 2)                            as collection_rate_pct
+round(
+    CAST(sum(ft.payment_amount)
+    / nullif(sum(ft.billed_amount), 0)
+    * 100 AS NUMERIC), 2)              as collection_rate_pct
 
     from ft
     left join periods p on ft.period_id = p.period_id

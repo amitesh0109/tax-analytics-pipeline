@@ -9,7 +9,7 @@ renamed as (
         period_id                                as period_id,
         tax_type_cd                              as tax_type_cd,
         ft_type_cd                               as ft_type_cd,
-        cast(amount as decimal(18,2))            as amount,
+        cast(amount as NUMERIC)           as amount,
         currency_cd                              as currency_cd,
         cast(ft_date as date)                    as ft_date,
         status                                   as ft_status,

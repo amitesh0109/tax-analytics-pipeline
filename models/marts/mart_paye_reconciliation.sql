@@ -29,10 +29,10 @@ paye_summary as (
         sum(ft.billed_amount)
             - sum(ft.payment_amount)                as variance,
 
-        round(
-            sum(ft.payment_amount)
-            / nullif(sum(ft.billed_amount), 0)
-            * 100, 2)                               as compliance_rate_pct,
+round(
+    CAST(sum(ft.payment_amount)
+    / nullif(sum(ft.billed_amount), 0)
+    * 100 AS NUMERIC), 2)                         as compliance_rate_pct,
 
         case
             when sum(ft.payment_amount)

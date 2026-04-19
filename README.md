@@ -1,7 +1,6 @@
 # Tax Authority Financial Analytics Pipeline
 
-An end-to-end data pipeline modelling financial transaction data for a tax authority,
-built with dbt and DuckDB. Implements a medallion architecture (Bronze → Silver → Gold)
+End-to-end ELT pipeline for tax authority using Python, dbt, PostgreSQL and Google BigQuery. Implements a medallion architecture (Bronze → Silver → Gold)
 with automated data quality tests across VAT, PAYE, and Corporate Income Tax domains.
 
 ## Architecture
